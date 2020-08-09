@@ -1,7 +1,9 @@
 #include "EngineController.h"
 
-const int POSITIVE_PIN = 11;
-const int NEGATIVE_PIN = 12;
+const int LEFT_MOTOR_FWD = 2;
+const int LEFT_MOTOR_BACK = 3;
+const int RIGHT_MOTOR_FWD = 6;
+const int RIGHT_MOTOR_BACK = 7;
 
 EngineController* engineController;
 
