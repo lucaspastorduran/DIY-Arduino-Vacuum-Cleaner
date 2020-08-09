@@ -8,13 +8,16 @@ const int RIGHT_MOTOR_BACK = 7;
 EngineController* engineController;
 
 // the setup routine runs once when you press reset:
-void setup() {                
+void setup() {
   
   // initialize the digital pin as an output.
   pinMode(LEFT_MOTOR_FWD, OUTPUT);   
   pinMode(LEFT_MOTOR_BACK, OUTPUT);
   pinMode(RIGHT_MOTOR_FWD, OUTPUT);   
-  pinMode(RIGHT_MOTOR_BACK, OUTPUT); 
+  pinMode(RIGHT_MOTOR_BACK, OUTPUT);
+
+  // Serial communicaions for Debug
+  Serial.begin(9600);
 
   // initialize all objects needed to control the Robot
   engineController = new EngineController(LEFT_MOTOR_FWD, LEFT_MOTOR_BACK, RIGHT_MOTOR_FWD, RIGHT_MOTOR_BACK);
@@ -24,7 +27,7 @@ void setup() {
 void loop() {
   engineController->setSpeed(100.0);
   engineController->moveRobot(MotorDirection::FORWARD);
-  /*delay(1000);
+  delay(1000);
   
   engineController->moveRobot(MotorDirection::LEFT);
   delay(1000);
@@ -38,5 +41,7 @@ void loop() {
   engineController->moveRobot(MotorDirection::BACKWARD);
   delay(1000);
   
-  engineController->stopRobot();*/
+  engineController->stopRobot();
+  Serial.println("Move direction at speed " + String(engineController->getSpeed()));
+  delay(1000);
 }
