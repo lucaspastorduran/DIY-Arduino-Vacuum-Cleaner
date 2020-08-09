@@ -15,6 +15,8 @@ class EngineController {
   void moveRobot(const MotorDirection direction, const double speed);
   void stopRobot();
 
+  double getSpeed() const;
+
  private:
   MotorDirection _direction;
   double _speed;

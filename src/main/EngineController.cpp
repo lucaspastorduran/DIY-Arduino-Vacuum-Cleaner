@@ -18,23 +18,32 @@ EngineController::~EngineController()
 void EngineController::setSpeed(const double speed)
 {
   _speed = speed;
+  sendToMotors();
 }
 
 void EngineController::moveRobot(const MotorDirection direction)
 {
   _direction = direction;
+  sendToMotors();
 }
 
 void EngineController::moveRobot(const MotorDirection direction, const double speed)
 {
   _speed = speed;
   _direction = direction;
+  sendToMotors();
 }
 
 void EngineController::stopRobot()
 {
   _speed = 0;
   _direction = MotorDirection::STOP;
+  sendToMotors();
+}
+
+double EngineController::getSpeed() const
+{
+  return _speed;
 }
 
 void EngineController::sendToMotors()
