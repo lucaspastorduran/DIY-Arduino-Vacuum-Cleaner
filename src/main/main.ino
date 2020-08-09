@@ -11,18 +11,20 @@ EngineController* engineController;
 void setup() {                
   
   // initialize the digital pin as an output.
-  pinMode(POSITIVE_PIN, OUTPUT);   
-  pinMode(NEGATIVE_PIN, OUTPUT);   
+  pinMode(LEFT_MOTOR_FWD, OUTPUT);   
+  pinMode(LEFT_MOTOR_BACK, OUTPUT);
+  pinMode(RIGHT_MOTOR_FWD, OUTPUT);   
+  pinMode(RIGHT_MOTOR_BACK, OUTPUT); 
 
   // initialize all objects needed to control the Robot
-  engineController = new EngineController();
+  engineController = new EngineController(LEFT_MOTOR_FWD, LEFT_MOTOR_BACK, RIGHT_MOTOR_FWD, RIGHT_MOTOR_BACK);
 }
 
 // the loop routine runs over and over again forever:
 void loop() {
   engineController->setSpeed(100.0);
   engineController->moveRobot(MotorDirection::FORWARD);
-  delay(1000);
+  /*delay(1000);
   
   engineController->moveRobot(MotorDirection::LEFT);
   delay(1000);
@@ -36,5 +38,5 @@ void loop() {
   engineController->moveRobot(MotorDirection::BACKWARD);
   delay(1000);
   
-  engineController->stopRobot();
+  engineController->stopRobot();*/
 }
