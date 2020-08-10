@@ -1,9 +1,9 @@
 #include "EngineController.h"
 
-const int LEFT_MOTOR_FWD = 2;
-const int LEFT_MOTOR_BACK = 3;
-const int RIGHT_MOTOR_FWD = 6;
-const int RIGHT_MOTOR_BACK = 7;
+const int LEFT_MOTOR_FWD = 7;
+const int LEFT_MOTOR_BACK = 6;
+const int RIGHT_MOTOR_FWD = 3;
+const int RIGHT_MOTOR_BACK = 2;
 
 EngineController* engineController;
 
@@ -25,12 +25,13 @@ void setup() {
 
 // the loop routine runs over and over again forever:
 void loop() {
-  engineController->setSpeed(100.0);
-  engineController->moveRobot(MotorDirection::FORWARD);
+  
+  engineController->moveRobot(MotorDirection::FORWARD, 100.0);
   Serial.println(engineController->getInfo());
   delay(5000);
   
   engineController->moveRobot(MotorDirection::LEFT);
+  engineController->setSpeed(99.0);
   Serial.println(engineController->getInfo());
   delay(5000);
 
@@ -38,7 +39,7 @@ void loop() {
   Serial.println(engineController->getInfo());
   delay(5000);
 
-  engineController->moveRobot(MotorDirection::RIGHT, 50.0);
+  engineController->moveRobot(MotorDirection::RIGHT, 95.0);
   Serial.println(engineController->getInfo());
   delay(5000);
 
