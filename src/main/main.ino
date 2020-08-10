@@ -27,21 +27,26 @@ void setup() {
 void loop() {
   engineController->setSpeed(100.0);
   engineController->moveRobot(MotorDirection::FORWARD);
-  delay(1000);
+  Serial.println(engineController->getInfo());
+  delay(5000);
   
   engineController->moveRobot(MotorDirection::LEFT);
-  delay(1000);
+  Serial.println(engineController->getInfo());
+  delay(5000);
 
   engineController->stopRobot();
-  delay(1000);
+  Serial.println(engineController->getInfo());
+  delay(5000);
 
   engineController->moveRobot(MotorDirection::RIGHT, 50.0);
-  delay(1000);
+  Serial.println(engineController->getInfo());
+  delay(5000);
 
   engineController->moveRobot(MotorDirection::BACKWARD);
-  delay(1000);
+  Serial.println(engineController->getInfo());
+  delay(5000);
   
   engineController->stopRobot();
-  Serial.println("Move direction at speed " + String(engineController->getSpeed()));
-  delay(1000);
+  Serial.println(engineController->getInfo());
+  delay(5000);
 }
