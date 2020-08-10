@@ -1,9 +1,9 @@
 #include "EngineController.h"
 
-const int LEFT_MOTOR_FWD = 7;
-const int LEFT_MOTOR_BACK = 6;
 const int RIGHT_MOTOR_FWD = 3;
 const int RIGHT_MOTOR_BACK = 2;
+const int LEFT_MOTOR_FWD = 7;
+const int LEFT_MOTOR_BACK = 6;
 
 EngineController* engineController;
 
