@@ -2,6 +2,8 @@
 
 #include "WheelMotor.h"
 
+#include <WString.h>
+
 enum MotorDirection
 {
   STOP,
@@ -18,9 +20,20 @@ class HardwareMapping {
                   const int rightForwardPin, const int rightBackwardPin);
   ~HardwareMapping();
   
-  void sendToMotors(MotorDirection direction, const double speed);
+  void setSpeed(const double speed);
+  void setDirection(const MotorDirection direction);
+  void moveMotors(const MotorDirection direction, const double speed);
+  void stopMotors();
+
+  double getSpeed() const;
+  String getDirection() const;
 
  private:
+  void sendToMotors(MotorDirection direction, const double speed);
+ 
+  MotorDirection _direction;
+  double _speed;
+  
   WheelMotor* _leftMotor;
   WheelMotor* _rightMotor;
 };

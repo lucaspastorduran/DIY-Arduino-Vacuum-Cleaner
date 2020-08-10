@@ -17,36 +17,38 @@ EngineController::~EngineController()
 
 void EngineController::setSpeed(const double speed)
 {
-  _speed = speed;
-  sendToMotors();
+  _hardwareMapping->setSpeed(speed);
 }
 
 void EngineController::moveRobot(const MotorDirection direction)
 {
-  _direction = direction;
-  sendToMotors();
+  _hardwareMapping->setDirection(direction);
 }
 
 void EngineController::moveRobot(const MotorDirection direction, const double speed)
 {
-  _speed = speed;
-  _direction = direction;
-  sendToMotors();
+  _hardwareMapping->moveMotors(direction, speed);
 }
 
 void EngineController::stopRobot()
 {
-  _speed = 0;
-  _direction = MotorDirection::STOP;
-  sendToMotors();
+  _hardwareMapping->stopMotors();
 }
 
 double EngineController::getSpeed() const
 {
-  return _speed;
+  return _hardwareMapping->getSpeed();
 }
 
-void EngineController::sendToMotors()
+String EngineController::getDirection() const
 {
-  _hardwareMapping->sendToMotors(_direction, _speed);
+  return _hardwareMapping->getDirection();
+}
+
+String EngineController::getInfo() const
+{
+  String message;
+  message = "Moving " + _hardwareMapping->getDirection() + " at speed " + String(_hardwareMapping->getSpeed());
+
+  return message;
 }

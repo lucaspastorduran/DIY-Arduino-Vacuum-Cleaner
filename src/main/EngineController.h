@@ -2,6 +2,8 @@
 
 #include "HardwareMapping.h"
 
+#include <WString.h>
+
 class EngineController {
  
  public:
@@ -16,12 +18,12 @@ class EngineController {
   void stopRobot();
 
   double getSpeed() const;
+  String getDirection() const;
+  String getInfo() const;
 
  private:
   MotorDirection _direction;
   double _speed;
-
-  void sendToMotors();
 
   HardwareMapping* _hardwareMapping;
 };
