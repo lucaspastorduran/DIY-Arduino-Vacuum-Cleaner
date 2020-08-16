@@ -2,11 +2,16 @@
 
 #include "Sensor.h"
 
+#include <WString.h>
+
 class DistanceSensor : public Sensor
 {
   public:
-    DistanceSensor();
+    DistanceSensor(const String model);
     ~DistanceSensor();
+
+    void setMaxRange(const double maxRange);
+    void setResolution(const double resolution);
 
     double getMaxRange() const;
     double getResolution() const;
@@ -14,8 +19,8 @@ class DistanceSensor : public Sensor
     double getDistance() const;
 
   private:
-    const double MAX_RANGE;
-    const double RESOLUTION;
+    double _maxRange;
+    double _resolution;
     
-    double currentDistance;
+    double _currentDistance;
 };
