@@ -1,4 +1,5 @@
 #include "EngineController.h"
+#include "SensorManager.h"
 
 const int RIGHT_MOTOR_FWD = 3;
 const int RIGHT_MOTOR_BACK = 2;

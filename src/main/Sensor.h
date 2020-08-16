@@ -1,5 +1,7 @@
 #pragma once
 
+#include <WString.h>
+
 enum SensorType
 {
   DISTANCE,
@@ -8,16 +10,16 @@ enum SensorType
   ACCELERATION
 };
 
-Class Sensor
+class Sensor
 {
   public:
     Sensor();
     ~Sensor();
 
     SensorType getType() const;
-    std::string getModel() const;
+    String getModel() const;
 
   private:
     SensorType _type;
-    std::string _model;
+    String _model;
 };

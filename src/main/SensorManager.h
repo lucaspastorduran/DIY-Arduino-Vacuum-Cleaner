@@ -1,8 +1,8 @@
 #pragma once
 
-#include <DistanceSensor.h>
+#include "DistanceSensor.h"
 
-Class SensorManager
+class SensorManager
 {
   public:
     SensorManager();

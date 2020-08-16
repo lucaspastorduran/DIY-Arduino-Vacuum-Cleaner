@@ -1,17 +1,21 @@
 #pragma once
 
-#include <Sensor.h>
+#include "Sensor.h"
 
-Class DistanceSensor : public Sensor
+class DistanceSensor : public Sensor
 {
   public:
     DistanceSensor();
     ~DistanceSensor();
 
     double getMaxRange() const;
+    double getResolution() const;
+    
     double getDistance() const;
 
   private:
-    const double maxRange;
+    const double MAX_RANGE;
+    const double RESOLUTION;
+    
     double currentDistance;
-}
+};
