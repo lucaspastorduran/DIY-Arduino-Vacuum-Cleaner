@@ -13,7 +13,7 @@ enum SensorType
 class Sensor
 {
   public:
-    Sensor();
+    Sensor(const String model);
     ~Sensor();
 
     SensorType getType() const;
@@ -21,5 +21,5 @@ class Sensor
 
   private:
     SensorType _type;
-    String _model;
+    const String _model;
 };
