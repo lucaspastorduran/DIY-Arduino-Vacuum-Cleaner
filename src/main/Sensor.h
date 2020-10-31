@@ -2,6 +2,8 @@
 
 #include <WString.h>
 
+const int MAX_ANALOG_VALUE = 1023;
+
 enum SensorType
 {
   DISTANCE,

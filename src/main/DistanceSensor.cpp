@@ -7,7 +7,6 @@ DistanceSensor::DistanceSensor(const String model) :
 
 DistanceSensor::~DistanceSensor()
 {
-  
 }
 
 void DistanceSensor::setMaxRange(const double maxRange)
