@@ -1,14 +1,14 @@
 #pragma once
 
-#include "Sensor.h"
+#include "AnalogSensor.h"
 
 #include <WString.h>
 
-class VoltageSensor : public Sensor
+class VoltageSensor : public AnalogSensor
 {
   public:
     VoltageSensor() = delete;
-    VoltageSensor(const int pin, const double refValue);
+    VoltageSensor(const int pin, const double maxValue, const double refValue);
     ~VoltageSensor();
 
     double getRefValue() const;
@@ -16,8 +16,4 @@ class VoltageSensor : public Sensor
     double getVoltage() const;
 
     String getInfo() const;
-
-  private:
-    const int _pin;
-    const double _refValue;
 };

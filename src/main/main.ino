@@ -7,7 +7,6 @@ const int RIGHT_MOTOR_BACK = 2;
 const int LEFT_MOTOR_FWD = 7;
 const int LEFT_MOTOR_BACK = 6;
 
-const double ANALOG_IN_REF = 5.0;
 const int BATTERY_PIN = A0;
 
 VoltageSensor* batteryVoltage;
@@ -27,7 +26,7 @@ void setup() {
   Serial.begin(9600);
 
   // initialize voltage sensor
-  batteryVoltage = new VoltageSensor(BATTERY_PIN, ANALOG_IN_REF);
+  batteryVoltage = new ArduinoVoltageSensor(BATTERY_PIN);
 
   // initialize all objects needed to control the Robot
   engineController = new EngineController(LEFT_MOTOR_FWD, LEFT_MOTOR_BACK, RIGHT_MOTOR_FWD, RIGHT_MOTOR_BACK);

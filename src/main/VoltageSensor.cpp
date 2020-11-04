@@ -2,10 +2,8 @@
 
 #include "Arduino.h"
 
-VoltageSensor::VoltageSensor(const int pin, const double refValue) :
-  Sensor("Voltage Sensor"),
-  _pin(pin),
-  _refValue(refValue)
+VoltageSensor::VoltageSensor(const int pin, const double maxValue, const double refValue) :
+  AnalogSensor(pin, maxValue, refValue)
 {
 }
 
@@ -13,23 +11,13 @@ VoltageSensor::~VoltageSensor()
 {
 }
 
-double VoltageSensor::getRefValue() const
-{
-  return _refValue;
-}
-
-int VoltageSensor::getRawValue() const
-{
-  return analogRead(_pin);
-}
-
 double VoltageSensor::getVoltage() const
 {
-  return (getRawValue()*_refValue)/MAX_ANALOG_VALUE;
+  return getValueConverted();
 }
 
 String VoltageSensor::getInfo() const
 {
-  String message = this->getModel() + " value is: " + getVoltage();
+  String message = "Voltage sensor value is: " + String(getVoltage());
   return message;
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "DistanceSensor.h"
+#include "ArduinoVoltageSensor.h"
 
 class SensorManager
 {
@@ -9,5 +9,5 @@ class SensorManager
     ~SensorManager();
 
   private:
-    DistanceSensor _frontSensor;
+    ArduinoVoltageSensor _batterySensor;
 };
